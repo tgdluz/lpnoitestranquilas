@@ -41,15 +41,15 @@ export function PricingSection() {
               {/* Price Section */}
               <div className="text-center mb-6 md:mb-8 pb-6 md:pb-8 border-b border-slate-200">
                 <p className="text-slate-400 text-base md:text-lg line-through mb-2">
-                  De R$ 966,00
+                  De R$ 399,00
                 </p>
                 <div className="flex items-baseline justify-center gap-1 md:gap-2 mb-2">
                   <span className="text-lg sm:text-xl md:text-2xl font-medium text-slate-600">12x de</span>
                   <span className="text-4xl sm:text-5xl md:text-6xl font-black text-[#37716F] tracking-tight">
-                    R$ 69,94
+                    R$ 30,72
                   </span>
                 </div>
-                <p className="text-sm md:text-base text-slate-500 font-medium">ou R$ 676,20 à vista</p>
+                <p className="text-sm md:text-base text-slate-500 font-medium">ou R$ 297 em 1x ou no pix</p>
               </div>
 
               {/* Includes */}
