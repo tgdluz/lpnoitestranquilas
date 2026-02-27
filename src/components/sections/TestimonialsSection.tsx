@@ -34,10 +34,12 @@ export function TestimonialsSection() {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.2 });
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
-  // Prevent body scroll when modal is open
+  // Prevent body scroll when modal is open and scroll modal to top
   useEffect(() => {
     if (selectedVideo) {
       document.body.style.overflow = 'hidden';
+      // Scroll to top of page when modal opens
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -106,31 +108,33 @@ export function TestimonialsSection() {
         {/* Video Modal */}
         {selectedVideo && (
           <div 
-            className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm overflow-y-auto"
             onClick={() => setSelectedVideo(null)}
           >
-            <div 
-              className="relative w-full max-w-4xl bg-black rounded-lg overflow-hidden shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedVideo(null)}
-                className="absolute top-4 right-4 md:top-6 md:right-6 z-10 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-colors backdrop-blur-sm"
-                aria-label="Fechar vídeo"
+            <div className="min-h-screen flex items-center justify-center p-4 md:p-6">
+              <div 
+                className="relative w-full max-w-4xl bg-black rounded-lg overflow-hidden shadow-2xl my-8"
+                onClick={(e) => e.stopPropagation()}
               >
-                <X className="w-5 h-5 md:w-6 md:h-6 text-white" />
-              </button>
+                {/* Close Button */}
+                <button
+                  onClick={() => setSelectedVideo(null)}
+                  className="absolute top-2 right-2 md:top-4 md:right-4 z-10 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-colors backdrop-blur-sm"
+                  aria-label="Fechar vídeo"
+                >
+                  <X className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                </button>
 
-              {/* Video Container */}
-              <div className="relative w-full pt-[56.25%]">
-                <iframe
-                  src={selectedVideo}
-                  className="absolute inset-0 w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="Depoimento em vídeo"
-                />
+                {/* Video Container */}
+                <div className="relative w-full pt-[56.25%]">
+                  <iframe
+                    src={`${selectedVideo}?autoplay=1&mute=0`}
+                    className="absolute inset-0 w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title="Depoimento em vídeo"
+                  />
+                </div>
               </div>
             </div>
           </div>
