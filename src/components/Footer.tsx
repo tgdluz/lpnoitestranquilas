@@ -39,14 +39,18 @@ export function Footer() {
             <h3 className="font-semibold text-gray-900 text-sm md:text-base">Redes Sociais</h3>
             <div className="flex gap-3 md:gap-4">
               <a 
-                href="#" 
+                href="https://www.instagram.com/bebe.noitestranquilas/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 md:w-10 md:h-10 bg-gray-200 hover:bg-primary hover:text-white rounded-full flex items-center justify-center transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4 md:w-5 md:h-5" />
               </a>
               <a 
-                href="#" 
+                href="https://www.facebook.com/profile.php?id=61575823710422" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 md:w-10 md:h-10 bg-gray-200 hover:bg-primary hover:text-white rounded-full flex items-center justify-center transition-colors"
                 aria-label="Facebook"
               >

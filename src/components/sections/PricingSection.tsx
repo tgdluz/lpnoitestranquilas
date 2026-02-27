@@ -66,7 +66,7 @@ export function PricingSection() {
 
               {/* CTA Button */}
               <a 
-                href="https://pay.hub.la/rxjZWAZYmQ59Sy68SnPJ"
+                href="https://pay.kiwify.com.br/IQhcNDs"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 md:gap-3 w-full bg-gradient-to-r from-[#37716F] to-[#72C0BE] hover:opacity-90 text-white text-lg md:text-xl font-bold py-4 px-6 md:py-6 md:px-8 rounded-xl shadow-xl shadow-[#37716F]/30 transition-all hover:scale-105 active:scale-95">
