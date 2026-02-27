@@ -9,7 +9,7 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/hero_img.png" 
+          src="/hero_2.png" 
           alt="Bebê dormindo tranquilamente" 
           className="w-full h-full object-cover object-center"
         />
