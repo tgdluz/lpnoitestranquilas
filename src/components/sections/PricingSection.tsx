@@ -2,6 +2,65 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Check, Lock, Shield, ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+const FACEBOOK_PIXEL_ID = "1481561910265607";
+let pixelInitialized = false;
+
+function trackPricingPurchase() {
+  if (typeof window === "undefined") return;
+
+  const win = window as Window & {
+    fbq?: (...args: unknown[]) => void;
+    _fbq?: unknown;
+  };
+
+  if (!win.fbq) {
+    ((f: Window & { fbq?: (...args: unknown[]) => void; _fbq?: unknown }, b: Document, e: string, v: string, t?: HTMLScriptElement, s?: HTMLScriptElement) => {
+      if (f.fbq) return;
+
+      const n = function (...args: unknown[]) {
+        if (n.callMethod) {
+          n.callMethod(...args);
+        } else {
+          (n.queue = n.queue || []).push(args);
+        }
+      } as ((...args: unknown[]) => void) & {
+        callMethod?: (...args: unknown[]) => void;
+        queue?: unknown[];
+        push?: (...args: unknown[]) => void;
+        loaded?: boolean;
+        version?: string;
+      };
+
+      if (!f._fbq) {
+        f._fbq = n;
+      }
+
+      f.fbq = n;
+      n.push = n;
+      n.loaded = true;
+      n.version = "2.0";
+      n.queue = [];
+
+      t = b.createElement(e) as HTMLScriptElement;
+      t.async = true;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0] as HTMLScriptElement;
+      s.parentNode?.insertBefore(t, s);
+    })(win, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+  }
+
+  if (!pixelInitialized) {
+    win.fbq?.("init", FACEBOOK_PIXEL_ID);
+    pixelInitialized = true;
+  }
+
+  win.fbq?.("track", "Purchase", {
+    content_name: "Pricing CTA",
+    value: 297,
+    currency: "BRL",
+  });
+}
+
 const includes = [
   "Método completo passo a passo",
   "Acompanhamento 24h WhatsApp",
@@ -69,6 +128,7 @@ export function PricingSection() {
                 href="https://pay.kiwify.com.br/IQhcNDs"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={trackPricingPurchase}
                 className="inline-flex items-center justify-center gap-2 md:gap-3 w-full bg-gradient-to-r from-[#37716F] to-[#72C0BE] hover:opacity-90 text-white text-lg md:text-xl font-bold py-4 px-6 md:py-6 md:px-8 rounded-xl shadow-xl shadow-[#37716F]/30 transition-all hover:scale-105 active:scale-95">
                 Garanta sua vaga
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
