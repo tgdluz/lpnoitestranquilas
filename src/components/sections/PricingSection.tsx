@@ -2,15 +2,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Check, Lock, Shield, ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-function trackAddToCart() {
-  const win = window as Window & { fbq?: (...args: unknown[]) => void };
-  win.fbq?.("track", "AddToCart", {
-    content_name: "Bebê Noites Tranquilas",
-    value: 297,
-    currency: "BRL",
-  });
-}
-
 const includes = [
   "Método completo passo a passo",
   "Acompanhamento 24h WhatsApp",
@@ -75,10 +66,9 @@ export function PricingSection() {
 
               {/* CTA Button */}
               <a 
-                href="https://pay.kiwify.com.br/IQhcNDs"
+                href="https://pay.hotmart.com/Q105161826J"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={trackAddToCart}
                 className="inline-flex items-center justify-center gap-2 md:gap-3 w-full bg-gradient-to-r from-[#37716F] to-[#72C0BE] hover:opacity-90 text-white text-lg md:text-xl font-bold py-4 px-6 md:py-6 md:px-8 rounded-xl shadow-xl shadow-[#37716F]/30 transition-all hover:scale-105 active:scale-95">
                 Garanta sua vaga
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
